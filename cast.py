@@ -17,10 +17,11 @@ def action():
   except StopIteration:
     print('Failure: Device not found, please check --to')
     os._exit(1)
+  cast.wait()
   print('Casting', args.type, 'from', args.url, 'to', args.to)
-  # cast.quit_app()
-  cast.media_controller.play_media(args.url, args.type)
-  cast.media_controller.block_until_active()
+  mc = cast.media_controller
+  mc.play_media(args.url, args.type)
+  mc.block_until_active()
   time.sleep(4)
   os._exit(0)
 

@@ -1,0 +1,33 @@
+#EXTM3U
+#EXTINF:0, - SomaFM.com - Deep Space One
+http://ice2.somafm.com/deepspaceone-128-aac
+#EXTINF:0, - SomaFM.com - Space Station
+http://ice2.somafm.com/spacestation-128-aac
+#EXTINF:0, - SomaFM.com - Sonic Universe
+http://ice2.somafm.com/sonicuniverse-256-mp3
+#EXTINF:0, - PsyStation - ChillOut
+http://hestia2.cdnstream.com:80/1459_128
+#EXTINF:0, - Echoes of BLUEMARS
+http://streams.echoesofbluemars.org:8000/bluemars
+#EXTINF:0, - Echoes of BLUEMARS - Cryosleep
+http://streams.echoesofbluemars.org:8000/cryosleep
+#EXTINF:0, - Echoes of BLUEMARS - Voices From Within
+http://streams.echoesofbluemars.org:8000/voicesfromwithin
+#EXTINF:0, - Chill,Relaxing,Positive-Work,Study,Relax
+http://streaming401.radionomy.com:80/Chill-Relaxing-Positive-Work-Study-Relax
+#EXTINF:0, - Cydonia Radio
+http://core.s-config.com:8000/cydonia
+#EXTINF:0, - netpd radio
+http://netpd.org:8010/netpd.mp3
+#EXTINF:0, - Experimental Radio Fun
+http://experimentalmusicfun.nl:8001/ExperimentalRadioFun.ogg
+#EXTINF:0, - Systrum Sistum - SSR1
+http://168.235.85.43:8000/Systrum-Channel1
+#EXTINF:0, - Dublovers.FM
+http://ml0.t4e.dj:80/dublovers_high.mp3
+#EXTINF:0, - Nirvana Ambient Radio
+http://radio.108.pl:8006/ambient.ogg
+#EXTINF:0, - Nirvana Meditation Radio
+http://radio.108.pl:8006/meditation.ogg
+#EXTINF:0, - GayWiredRadio
+http://streaming401.radionomy.com:80/GayWiredRadio
