@@ -10,14 +10,16 @@ gemfile do
 end
 
 class Stream < Goliath::API
+
+  INPUT = UNIXSocket.open('stream.flac')
+  
   def response(env)
     puts env['REMOTE_ADDR']
-    socket = UNIXSocket.open('stream.flac')
-    EM.add_periodic_timer(0.02) do
-      env.stream_send(socket.recv_nonblock(100_000))
+    EM.add_periodic_timer(0.01) do
+      env.stream_send(INPUT.recv_nonblock(50_000))
     rescue IO::EAGAINWaitReadable
     end
 
-    [200, {}, Goliath::Response::STREAMING]
+    [200, {"Content-Type" => "audio/flac"}, Goliath::Response::STREAMING]
   end
 end

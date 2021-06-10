@@ -1,2 +1,1 @@
-pychromecast
-zeroconf==0.24.3
+pychromecast==7.2.0

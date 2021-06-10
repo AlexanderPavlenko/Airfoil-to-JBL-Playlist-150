@@ -11,7 +11,7 @@ import time, pychromecast, threading, os
 
 def action():
   print('Connecting to', args.to, '…')
-  all = pychromecast.get_chromecasts()
+  all = pychromecast.get_chromecasts()[0]
   try:
     cast = next(e for e in all if e.device.friendly_name.lower() == args.to.lower())
   except StopIteration:

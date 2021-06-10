@@ -2,5 +2,5 @@
 # see ffmpeg -f avfoundation -list_devices true -i ''
 # see https://github.com/ExistentialAudio/BlackHole
 stream: rm -f stream.flac; ffmpeg -f avfoundation -i ":2" -map_channel 0.0.0 -map_channel 0.0.1 -c flac -f flac -loglevel info - | socat STDIN UNIX-LISTEN:stream.flac
-http: sleep 2; GEM_HOME=vendor ruby serve.rb
-init: sleep 3; ../cast.py --to Home --url http://192.168.2.2:9000 --type audio/flac
+http: sleep 2; GEM_HOME=vendor ruby serve.rb -sv
+init: set -e; sleep 3; ../cast.py --to "Living Room TV" --url http://192.168.44.2:9000 --type audio/flac; sleep 1000000000
