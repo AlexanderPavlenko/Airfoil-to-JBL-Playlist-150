@@ -1,0 +1,7 @@
+cask "blackhole-16ch"
+brew "sox"
+brew "ruby"
+brew "python"
+brew "pipenv"
+brew "direnv"
+brew "overmind"

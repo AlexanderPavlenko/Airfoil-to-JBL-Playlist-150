@@ -1,2 +1,2 @@
-kitchen: osascript airfoil-cast.scpt "Kitchen speaker"
-bathroom: osascript airfoil-cast.scpt "Bathroom speaker"
+stream: sox -q -V1 -t coreaudio "BlackHole 16ch" -t wav - remix 1 2 | bundle exec ./stream.rb -sv
+init: set -e; sleep 3; pipenv run ./cast.py --to "Home" --url http://192.168.44.6:9000 --type audio/wav; sleep 1000000000

@@ -1,16 +1,12 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require 'bundler/inline'
 require 'shellwords'
-
-gemfile do
-  source 'https://rubygems.org'
-  gem 'tty-prompt'
-end
+require 'tty-prompt'
 
 CAST = 'Home'
 MENU = begin
-  m3u = File.read(File.expand_path('radio.m3u', __dir__)).each_line
+  m3u = File.read(File.expand_path('radio.m3u', __dir__.to_s)).each_line
   m3u.next # skip EXTM3U header
   result = {}
   index = 1
@@ -29,7 +25,7 @@ def cast(url)
 end
 
 index = ARGV[0].to_i
-if index > 0 && index <= MENU.size
+if index.positive? && index <= MENU.size
   cast MENU.to_a[index - 1][1]
   exit
 else
