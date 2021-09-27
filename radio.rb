@@ -4,24 +4,28 @@
 require 'shellwords'
 require 'tty-prompt'
 
-CAST = 'Home'
-MENU = begin
-  m3u = File.read(File.expand_path('radio.m3u', __dir__.to_s)).each_line
-  m3u.next # skip EXTM3U header
-  result = {}
-  index = 1
-  loop do
-    title = m3u.next.split(' - ', 2)[1]
-    url = m3u.next
-    result["#{index}. #{title.strip}"] = url.strip
-    index += 1
-  rescue StopIteration
-    break result
+CAST_TO = ENV.fetch('CAST_TO', 'Home')
+MENU    =
+  begin
+    m3u = File.read(File.expand_path('radio.m3u', __dir__.to_s)).each_line
+    m3u.next # skip EXTM3U header
+    result = {}
+    index  = 1
+    loop do
+      title                              = m3u.next.split(' - ', 2)[1]
+      url                                = m3u.next
+      result["#{index}. #{title.strip}"] = url.strip
+
+      index += 1
+    rescue StopIteration
+      break result
+    end
   end
-end
 
 def cast(url)
-  system %(./cast.py --to #{Shellwords.escape CAST} --url #{Shellwords.escape url} --type audio)
+  Dir.chdir(__dir__.to_s) do
+    system %(pipenv run ./cast.py --to #{Shellwords.escape CAST_TO} --url #{Shellwords.escape url} --type audio)
+  end
 end
 
 index = ARGV[0].to_i
